@@ -19,11 +19,15 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
 # Inherit from the custom device configuration.
 $(call inherit-product, device/google/pantah/aosp_cheetah.mk)
+$(call inherit-product, device/google/gs201/aospa_common.mk)
 
 include device/google/pantah/device-aospa.mk
 
 # Inherit from the AOSPA configuration.
+TARGET_DISABLE_EPPE := true
 $(call inherit-product, vendor/aospa/target/product/aospa-target.mk)
+
+include device/google/pantah/cheetah/device-aospa.mk
 
 # Resolution for bootanimation
 TARGET_BOOT_ANIMATION_RES := 1440
@@ -38,10 +42,10 @@ PRODUCT_GMS_CLIENTID_BASE := android-google
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_DEVICE=Pixel7Pro \
-    PRIVATE_BUILD_DESC="cheetah-user 13 TD1A.221105.001 9104446 release-keys"
+    PRIVATE_BUILD_DESC="cheetah-user 14 AP1A.240405.002 11480754 release-keys"
 
-BUILD_FINGERPRINT := google/cheetah/cheetah:13/TD1A.221105.001/9104446:user/release-keys
+BUILD_FINGERPRINT := google/cheetah/cheetah:14/AP1A.240405.002/11480754:user/release-keys
 
-$(call inherit-product, vendor/google_devices/cheetah/cheetah-vendor.mk)
+$(call inherit-product, vendor/google/cheetah/cheetah-vendor.mk)
 
 endif
